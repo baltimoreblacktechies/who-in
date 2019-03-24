@@ -1,18 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { Link, Router, Route } from 'react-router-dom';
 import { Box, Button } from 'grommet';
 
+import { history } from './store/store';
 import './styles/App.scss';
 import AppBar from './AppBar';
 import Homepage from './components/homepage';
 import Login from './components/login';
-// import Login from './login/login';
-
-import NewEvent from './NewEvent/NewEvent';
+import NewEvent from './components/NewEvent/NewEvent';
 
 const App = () => (
-  <Router>
+  <Router history={history}>
     <div>
       <header>
         <AppBar>

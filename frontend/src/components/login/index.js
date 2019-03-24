@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Login from './Login';
+import { postLogin } from '../../actions/loginActions';
 
-const mapStateToProps = () => {};
+const mapDispatchToProps = { postLogin };
 
-const mapDispatchToProps = {};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(Login)
+);
