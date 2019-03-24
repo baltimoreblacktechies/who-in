@@ -1,12 +1,12 @@
 import axios from 'axios';
 import Bluebird from 'bluebird';
 
-const getLoginUrl = () => ``;
+const getLoginUrl = () => `http://localhost:3000/auth/login`;
 const getEventsUrl = () => `http://localhost:3000/events`;
 
-export const login = (username, password) => {
+export const axPostLogin = (email, password) => {
   return Bluebird.resolve(
-    axios.post(getLoginUrl(), { username, password }).then(({ data }) => data)
+    axios.post(getLoginUrl(), { email, password }).then(({ data }) => data)
   );
 };
 

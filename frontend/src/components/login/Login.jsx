@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { Button, Form, FormField, Heading } from 'grommet';
 
 class Login extends React.Component {
@@ -15,18 +14,18 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
+  handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
-  }
+  };
 
-  handleSubmit(e) {
-    axios.post('http://localhost:3000/auth/login', this.state).then(res => {
-      console.log(res);
-    });
+  handleSubmit = async e => {
+    const { postLogin, history } = this.props;
+    await postLogin(this.state);
+    history.push('/');
     e.preventDefault();
-  }
+  };
 
   render() {
     const { email, password } = this.state;
